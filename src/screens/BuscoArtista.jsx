@@ -1,10 +1,10 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-export default function Auth() {
+export default function BuscoArtista() {
   return (
     <View>
-      <Text>Auth</Text>
+      <Text>BuscoArtista</Text>
     </View>
   )
 }
