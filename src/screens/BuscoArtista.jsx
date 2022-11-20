@@ -1,10 +1,7 @@
 import React from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
-import { useUserData } from "../hooks/useUserData.jx";
-import {  db } from "../firebase/firebase.js";
 
 const BuscoArtista = () => {
-
   <View style={styles.container}>
     <Text>BuscoArtista</Text>
   </View>;

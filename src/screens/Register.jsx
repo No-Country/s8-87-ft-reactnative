@@ -14,7 +14,7 @@ const Register = (props) => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        props.navigation.navigate("SoyArtista");
+        props.navigation.navigate("Home");
       }
     });
     return unsubscribe;

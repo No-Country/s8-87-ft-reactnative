@@ -1,23 +1,22 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
-import Logout from "../components/Auth/Logout.jsx";
+import { View, Text, StyleSheet } from 'react-native'
+import React from 'react'
+import SoyArtistaHeader from '../components/SoyArtista/SoyArtistaHeader'
+import ExperienceCard from '../components/SoyArtista/ExperienceCard'
 
-const SoyArtista = (props) => {
+export default function SoyArtista() {
   return (
     <View style={styles.container}>
-      <Logout {...props} />
-      <Text>Soy Artista</Text>
+      <SoyArtistaHeader />
+      <ExperienceCard />
+      <ExperienceCard />
+      <ExperienceCard />
+      <ExperienceCard />
     </View>
-  );
-};
-
-export default SoyArtista;
+  )
+}
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+  container:{
+    backgroundColor:"#DAD5D1"
+  }
+})

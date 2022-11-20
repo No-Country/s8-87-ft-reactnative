@@ -11,7 +11,7 @@ const LogIn = (props) => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user && login) {
-        props.navigation.navigate("SoyArtista");
+        props.navigation.navigate("Home");
       }
     });
     return unsubscribe;
