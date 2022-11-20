@@ -1,20 +1,9 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
-import StyledButton from "./src/components/UI/StyledButton";
+import React from "react";
+import LandingNavigation from "./src/navigation/LandingNavigation.jsx";
+
+/* Asi podría ir cuando implementemos el auth */
+/* {isAuthenticated ? HomeTabNavigator : AuthNavigation } */
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <StyledButton name="LOGGEARME" />
-    </View>
-  );
+  return <LandingNavigation />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
