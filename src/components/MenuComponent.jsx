@@ -1,7 +1,13 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { auth, db, getUserInfo } from "../firebase/firebase.js";
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 
 export default function MenuComponent() {
+  const navigation = useNavigation();
+  const handleSignOut = () =>
+    auth.signOut().then(() => navigation.navigate("Landing"));
+
   return (
     <View style={styles.menuContainer}>
       <TouchableOpacity onPress={() => console.log("Ayuda")}>
@@ -10,7 +16,7 @@ export default function MenuComponent() {
       <TouchableOpacity onPress={() => console.log("Salir")}>
         <Text style={styles.menuText}>Salir</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={() => console.log("Cerrar Sesión")}>
+      <TouchableOpacity onPress={handleSignOut}>
         <Text style={styles.menuText}>Cerrar Sesión</Text>
       </TouchableOpacity>
     </View>
