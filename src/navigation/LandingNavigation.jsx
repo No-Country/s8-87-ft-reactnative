@@ -18,11 +18,11 @@ const LandingNavigation = () => {
     colors: {
       ...DefaultTheme.colors,
       background: "#DAD5D1",
-    }
-  }
+    },
+  };
   return (
     <NavigationContainer theme={MyTheme}>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{ headerRight: () => <TresPuntos /> }}>
         <Stack.Screen
           name="Landing"
           component={Landing}
@@ -52,43 +52,34 @@ const LandingNavigation = () => {
             },
           }}
         />
-        <Stack.Screen 
-        name="Home" 
-        component={HomeTabNavigator} 
-        options={{
-          headerShown: false,
-        }}
+        <Stack.Screen
+          name="Home"
+          component={HomeTabNavigator}
+          options={{
+            headerShown: false,
+          }}
         />
 
-      <Stack.Screen 
-            name="MI BIO"
-            component={MiBio}
-            options={{
-              headerStyle:{
-                backgroundColor: palette.AuraOrange         
+        <Stack.Screen
+          name="MI BIO"
+          component={MiBio}
+          options={{
+            headerStyle: {
+              backgroundColor: palette.AuraOrange,
             },
             headerTintColor: "white",
-            headerRight: () => (
-              <TresPuntos />
-          ),
-          
+            headerRight: () => <TresPuntos />,
           }}
-        
         />
-            <Stack.Screen 
-            name="SUBIR EXPERIENCIA"
-            component={SubirExperiencia}
-            options={{
-              headerStyle:{
-                backgroundColor: palette.AuraOrange         
+        <Stack.Screen
+          name="SUBIR EXPERIENCIA"
+          component={SubirExperiencia}
+          options={{
+            headerStyle: {
+              backgroundColor: palette.AuraOrange,
             },
             headerTintColor: "white",
-            headerRight: () => (
-              <TresPuntos />
-          ),
-          
           }}
-        
         />
       </Stack.Navigator>
     </NavigationContainer>

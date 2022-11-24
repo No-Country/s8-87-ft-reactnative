@@ -1,26 +1,26 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import React from "react";
 
 export default function MenuComponent() {
   return (
     <View style={styles.menuContainer}>
-      <TouchableOpacity onPress={()=> console.log("Ayuda")}>
+      <TouchableOpacity onPress={() => console.log("Ayuda")}>
         <Text style={styles.menuText}>Ayuda</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={()=> console.log("Salir")}>
+      <TouchableOpacity onPress={() => console.log("Salir")}>
         <Text style={styles.menuText}>Salir</Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress={()=> console.log("Cerrar Sesión")}>
+      <TouchableOpacity onPress={() => console.log("Cerrar Sesión")}>
         <Text style={styles.menuText}>Cerrar Sesión</Text>
       </TouchableOpacity>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
-   menuContainer: {
+  menuContainer: {
     width: 132,
-    height:100,
+    height: 100,
     position: "absolute",
     backgroundColor: "white",
     top: 40,
@@ -28,10 +28,12 @@ const styles = StyleSheet.create({
     padding: 8,
     justifyContent: "center",
     alignItems: "center",
-   },
-   menuText: {
+    zIndex: 999,
+    elevation: 100,
+  },
+  menuText: {
     fontSize: 16,
     padding: 4,
-    zIndex: 50
-   }
-})
+    zIndex: 50,
+  },
+});
