@@ -1,11 +1,17 @@
 import React from "react";
-import { StyleSheet, Text, Pressable } from "react-native";
+import { StyleSheet, Text, Pressable, TouchableOpacity } from "react-native";
 //import { auth } from "../../../firebase/firebase";
 
 const styles = StyleSheet.create({
   buttonFill: {
     paddingVertical: 10,
     backgroundColor: "#B3282B",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttonFillGrey: {
+    paddingVertical: 10,
+    backgroundColor: "#757575",
     justifyContent: "center",
     alignItems: "center",
   },
@@ -28,11 +34,16 @@ const styles = StyleSheet.create({
 });
 
 const StyledButton = (props) => {
-  const { name, navigate, fill } = props;
-  const textStyle = fill ? styles.buttonFillText : styles.buttonText;
-  const buttonStyle = fill ? styles.buttonFill : styles.button;
+  const { name, navigate, fill, fillGrey } = props;
+  const textStyle =
+    fill || fillGrey ? styles.buttonFillText : styles.buttonText;
+  const buttonStyle = fill
+    ? styles.buttonFill
+    : fillGrey
+    ? styles.buttonFillGrey
+    : styles.button;
   return (
-    <Pressable
+    <TouchableOpacity
       style={buttonStyle}
       onPress={
         typeof navigate === "string"
@@ -41,7 +52,7 @@ const StyledButton = (props) => {
       }
     >
       <Text style={textStyle}>{name}</Text>
-    </Pressable>
+    </TouchableOpacity>
   );
 };
 

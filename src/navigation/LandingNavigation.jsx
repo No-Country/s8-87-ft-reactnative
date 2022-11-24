@@ -4,7 +4,6 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Landing from "../screens/Landing.jsx";
 import LogIn from "../screens/Login.jsx";
 import Register from "../screens/Register.jsx";
-import SoyArtista from "../screens/SoyArtista.jsx";
 import HomeTabNavigator from "./HomeTabNavigator.jsx";
 
 const Stack = createNativeStackNavigator();
@@ -21,7 +20,14 @@ const LandingNavigation = () => {
         <Stack.Screen
           name="Login"
           component={LogIn}
-          options={{ title: "Log In" }}
+          options={{
+            title: "Log In",
+            headerTitleAlign: "center",
+            headerTintColor: "#fff",
+            headerStyle: {
+              backgroundColor: "#B3282B",
+            },
+          }}
         />
         <Stack.Screen
           name="Register"
@@ -29,6 +35,7 @@ const LandingNavigation = () => {
           options={{
             title: "Registro",
             headerTintColor: "#fff",
+            headerTitleAlign: "center",
             headerStyle: {
               backgroundColor: "#B3282B",
             },

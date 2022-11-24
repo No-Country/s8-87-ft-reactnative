@@ -1,8 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { View, Button, TextInput, StyleSheet, Alert } from "react-native";
+import { Formik } from "formik";
+import * as Yup from "yup";
 import StyledButton from "../components/UI/buttons/StyledButton.jsx";
+import StyledTextInput from "../components/UI/inputs/StyledTextInput.jsx";
 import TopBar from "../components/UI/TopBar.jsx";
 import { auth } from "../firebase/firebase.js";
+
+const validationSchema = Yup.object({
+  email: Yup.string().email("Email inválido").required("Email requerido"),
+  password: Yup.string()
+    .trim(6, "Constraseña muy corta")
+    .required("Contraseña requerida"),
+});
 
 const LogIn = (props) => {
   const [state, setState] = useState({ email: "", pass: "" });
@@ -38,7 +48,7 @@ const LogIn = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.botonera}>
-        <TopBar {...props} />
+        <TopBar {...props} section="login" />
       </View>
       <View style={styles.innerContainer}>
         <View style={styles.inputGroup}>

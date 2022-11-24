@@ -5,14 +5,24 @@ function TopBar(props) {
   return (
     <View style={styles.botonera}>
       <Pressable
-        style={styles.botones}
+        style={{
+          ...styles.botones,
+          borderBottomWidth: props.section === "register" ? 2 : 0,
+        }}
+        backgroundColor="#B3282B"
+        onPress={() => props.navigation.navigate("Register")}
+      >
+        <Text style={styles.buttonText}>REGISTRARME</Text>
+      </Pressable>
+      <Pressable
+        style={{
+          ...styles.botones,
+          borderBottomWidth: props.section === "login" ? 2 : 0,
+        }}
         backgroundColor="#B3282B"
         onPress={() => props.navigation.navigate("Login")}
       >
         <Text style={styles.buttonText}>LOGGEARME</Text>
-      </Pressable>
-      <Pressable onPress={() => props.navigation.navigate("Register")}>
-        <Text style={styles.buttonText}>REGISTRARME</Text>
       </Pressable>
     </View>
   );
@@ -26,13 +36,24 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#B3282B",
+    width: "50%",
+    height: 50,
+    borderBottomColor: "#FFF",
   },
   botonera: {
     flexDirection: "row",
     width: "100%",
     backgroundColor: "#B3282B",
     justifyContent: "space-around",
-    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 1,
+    shadowRadius: 3.84,
+
+    elevation: 10,
   },
   buttonText: {
     color: "#fff",
