@@ -6,7 +6,7 @@ import BioExperiencias from './BioExperiencias'
 export default function SoyArtistaHeader() {
   return (
     <View style={styles.container}>
-        <ProfilePictureName />
+        <ProfilePictureName imgSize={{width:100, height: 100}} nameSize={20}/>
         <BioExperiencias />
     </View>
   )

@@ -1,16 +1,13 @@
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, FlatList } from 'react-native'
 import React from 'react'
 import SoyArtistaHeader from '../components/SoyArtista/SoyArtistaHeader'
 import ExperienceCard from '../components/SoyArtista/ExperienceCard'
+import SoyArtistaList from '../components/SoyArtista/SoyArtistaList'
 
 export default function SoyArtista() {
   return (
     <View style={styles.container}>
-      <SoyArtistaHeader />
-      <ExperienceCard />
-      <ExperienceCard />
-      <ExperienceCard />
-      <ExperienceCard />
+      <SoyArtistaList />    
     </View>
   )
 }

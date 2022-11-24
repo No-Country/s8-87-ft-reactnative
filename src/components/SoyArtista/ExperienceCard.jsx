@@ -1,19 +1,19 @@
 import { View, Text, Image, StyleSheet } from 'react-native'
 import React from 'react'
 
-export default function ExperienceCard() {
+export default function ExperienceCard({item}) {
   return (
     <View style={styles.container}>
         <View style={styles.imageContainer}>
-            <Image style={styles.image}source={require("../../assets/images/experience-image.png")}/>
+            <Image style={styles.image} source={require("../../assets/images/experience-image.png")}/>
         </View>
         <View style={styles.textContainer}>
-            <Text style={styles.title}>Disney Jr. en el GRAN REX</Text>
+            <Text style={styles.title}>{item.title}</Text>
             <View style={styles.verifiedContainer}>
-                <Text style={styles.company}>Disney Theatrical</Text>
-                <Image source={require("../../assets/icons/verified-icon.png")}/>
+                <Text style={styles.company}>{item.company}</Text>
+                {item.verified && <Image source={require("../../assets/icons/verified-icon.png")}/>}
             </View>
-            <Text style={styles.duration}>hace 4 meses</Text>
+            <Text style={styles.duration}>{item.duration}</Text>
         </View>
     </View>
   )
