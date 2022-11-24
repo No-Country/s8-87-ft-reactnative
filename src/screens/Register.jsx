@@ -1,12 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  View,
-  Pressable,
-  TextInput,
-  StyleSheet,
-  Text,
-  Alert,
-} from "react-native";
+import { View, StyleSheet, Alert } from "react-native";
 import { auth, db } from "../firebase/firebase.js";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -47,12 +40,12 @@ const Register = (props) => {
     setState({ ...state, [name]: value });
   };
 
-  const handleCreateUser = () => {
+  const handleCreateUser = (values) => {
     auth
-      .createUserWithEmailAndPassword(state.email, state.pass)
+      .createUserWithEmailAndPassword(values.email, values.password)
       .then((userCredential) => {
         const user = userCredential.user;
-        AddUser(user.uid);
+        AddUser(user.uid, values);
         // console.log(user);
       })
       .catch((error) => {
@@ -61,12 +54,12 @@ const Register = (props) => {
       });
   };
 
-  const AddUser = async (id) => {
+  const AddUser = async (id, values) => {
     try {
       await db.collection("users").doc(id).set({
-        name: state.name,
-        lastname: state.lastname,
-        email: state.email,
+        name: values.name,
+        lastname: values.lastname,
+        email: values.email,
       });
     } catch (error) {
       console.log(error);
@@ -83,7 +76,7 @@ const Register = (props) => {
           initialValues={userInfo}
           validationSchema={validationSchema}
           onSubmit={(values) => {
-            console.log(values);
+            handleCreateUser(values);
           }}
         >
           {({
@@ -133,14 +126,6 @@ const Register = (props) => {
                     onPress={handleSubmit}
                     title="CREAR NUEVA CUENTA"
                   />
-
-                  {/* <StyledButton
-                    submitting={isSubmitting}
-                    name="CREAR NUEVA CUENTA"
-                    onPress={handleSubmit}
-                    {...props}
-                    fill
-                  /> */}
                 </View>
                 <View style={styles.botones}>
                   <StyledButton
