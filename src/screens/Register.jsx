@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
-import { View, Button, TextInput, StyleSheet, Text, Alert } from "react-native";
+import { View, StyleSheet, Alert } from "react-native";
 import { auth, db } from "../firebase/firebase.js";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import TopBar from "../components/UI/TopBar.jsx";
 import StyledTextInput from "../components/UI/inputs/StyledTextInput.jsx";
 import StyledButton from "../components/UI/buttons/StyledButton.jsx";
+import StyledSubmitButton from "../components/UI/buttons/StyledSubmitButton.jsx";
 
 const validationSchema = Yup.object({
   name: Yup.string().min(3, "Nombre Inválido").required("Nombre requerido"),
@@ -23,7 +24,7 @@ const Register = (props) => {
     name: "",
     lastname: "",
     email: "",
-    pass: "",
+    password: "",
   };
 
   useEffect(() => {
@@ -39,12 +40,12 @@ const Register = (props) => {
     setState({ ...state, [name]: value });
   };
 
-  const handleCreateUser = () => {
+  const handleCreateUser = (values) => {
     auth
-      .createUserWithEmailAndPassword(state.email, state.pass)
+      .createUserWithEmailAndPassword(values.email, values.password)
       .then((userCredential) => {
         const user = userCredential.user;
-        AddUser(user.uid);
+        AddUser(user.uid, values);
         // console.log(user);
       })
       .catch((error) => {
@@ -53,12 +54,12 @@ const Register = (props) => {
       });
   };
 
-  const AddUser = async (id) => {
+  const AddUser = async (id, values) => {
     try {
       await db.collection("users").doc(id).set({
-        name: state.name,
-        lastname: state.lastname,
-        email: state.email,
+        name: values.name,
+        lastname: values.lastname,
+        email: values.email,
       });
     } catch (error) {
       console.log(error);
@@ -75,13 +76,14 @@ const Register = (props) => {
           initialValues={userInfo}
           validationSchema={validationSchema}
           onSubmit={(values) => {
-            console.log(values);
+            handleCreateUser(values);
           }}
         >
           {({
             values,
             errors,
             touched,
+            isSubmitting,
             handleChange,
             handleBlur,
             handleSubmit,
@@ -119,11 +121,10 @@ const Register = (props) => {
                   onBlur={handleBlur("password")}
                 />
                 <View style={styles.botones}>
-                  <StyledButton
-                    name="CREAR NUEVA CUENTA"
+                  <StyledSubmitButton
+                    submitting={isSubmitting}
                     onPress={handleSubmit}
-                    {...props}
-                    fill
+                    title="CREAR NUEVA CUENTA"
                   />
                 </View>
                 <View style={styles.botones}>
