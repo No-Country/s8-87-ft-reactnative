@@ -1,4 +1,3 @@
-import { View, Text, Image } from 'react-native';
 import React, { useState } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SoyArtista from '../screens/SoyArtista';
@@ -8,12 +7,12 @@ import { palette } from '../utils/palette';
 import CastingIcon from "../assets/icons/casting-icon.svg";
 import SoytArtistaIcon from "../assets/icons/soy-artista-icon.svg"
 import BuscoArtistaIcon from "../assets/icons/busco-artista-icon.svg"
+import TresPuntos from '../components/TresPuntos';
 
 export default function HomeTabNavigator() {
 
-    // const [activeBar, setActiveBar] = useState(null)
-
     const Tab = createBottomTabNavigator();
+
 
     const renderCastingIcon = () => {
         return (
@@ -47,7 +46,10 @@ export default function HomeTabNavigator() {
         headerStyle:{
             backgroundColor: palette.AuraOrange         
         },
-        headerTintColor: "white"
+        headerTintColor: "white",
+        headerRight: () => (
+            <TresPuntos />
+        )
     }
     }>
       <Tab.Screen 
@@ -60,7 +62,7 @@ export default function HomeTabNavigator() {
                 color:"white",
                 fontSize: 12
             },
-            tabBarIcon: renderSoyArtistaIcon,            
+            tabBarIcon: renderSoyArtistaIcon,          
         }}
         />
 
@@ -95,3 +97,4 @@ export default function HomeTabNavigator() {
     </Tab.Navigator>
   )
 }
+

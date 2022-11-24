@@ -1,17 +1,27 @@
 import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Landing from "../screens/Landing.jsx";
 import LogIn from "../screens/Login.jsx";
 import Register from "../screens/Register.jsx";
-import SoyArtista from "../screens/SoyArtista.jsx";
 import HomeTabNavigator from "./HomeTabNavigator.jsx";
+import MiBio from "../screens/MiBio.jsx";
+import TresPuntos from "../components/TresPuntos.jsx";
+import SubirExperiencia from "../components/SoyArtista/SubirExperiencia.jsx";
+import { palette } from "../utils/palette.js";
 
 const Stack = createNativeStackNavigator();
 
 const LandingNavigation = () => {
+  const MyTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      background: "#DAD5D1",
+    }
+  }
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={MyTheme}>
       <Stack.Navigator>
         <Stack.Screen
           name="Landing"
@@ -34,7 +44,44 @@ const LandingNavigation = () => {
             },
           }}
         />
-        <Stack.Screen name="Home" component={HomeTabNavigator} />
+        <Stack.Screen 
+        name="Home" 
+        component={HomeTabNavigator} 
+        options={{
+          headerShown: false,
+        }}
+        />
+
+      <Stack.Screen 
+            name="MI BIO"
+            component={MiBio}
+            options={{
+              headerStyle:{
+                backgroundColor: palette.AuraOrange         
+            },
+            headerTintColor: "white",
+            headerRight: () => (
+              <TresPuntos />
+          ),
+          
+          }}
+        
+        />
+            <Stack.Screen 
+            name="SUBIR EXPERIENCIA"
+            component={SubirExperiencia}
+            options={{
+              headerStyle:{
+                backgroundColor: palette.AuraOrange         
+            },
+            headerTintColor: "white",
+            headerRight: () => (
+              <TresPuntos />
+          ),
+          
+          }}
+        
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
