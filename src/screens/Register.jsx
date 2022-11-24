@@ -1,11 +1,19 @@
 import React, { useEffect } from "react";
-import { View, Button, TextInput, StyleSheet, Text, Alert } from "react-native";
+import {
+  View,
+  Pressable,
+  TextInput,
+  StyleSheet,
+  Text,
+  Alert,
+} from "react-native";
 import { auth, db } from "../firebase/firebase.js";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import TopBar from "../components/UI/TopBar.jsx";
 import StyledTextInput from "../components/UI/inputs/StyledTextInput.jsx";
 import StyledButton from "../components/UI/buttons/StyledButton.jsx";
+import StyledSubmitButton from "../components/UI/buttons/StyledSubmitButton.jsx";
 
 const validationSchema = Yup.object({
   name: Yup.string().min(3, "Nombre Inválido").required("Nombre requerido"),
@@ -23,7 +31,7 @@ const Register = (props) => {
     name: "",
     lastname: "",
     email: "",
-    pass: "",
+    password: "",
   };
 
   useEffect(() => {
@@ -82,6 +90,7 @@ const Register = (props) => {
             values,
             errors,
             touched,
+            isSubmitting,
             handleChange,
             handleBlur,
             handleSubmit,
@@ -119,12 +128,19 @@ const Register = (props) => {
                   onBlur={handleBlur("password")}
                 />
                 <View style={styles.botones}>
-                  <StyledButton
+                  <StyledSubmitButton
+                    submitting={isSubmitting}
+                    onPress={handleSubmit}
+                    title="CREAR NUEVA CUENTA"
+                  />
+
+                  {/* <StyledButton
+                    submitting={isSubmitting}
                     name="CREAR NUEVA CUENTA"
                     onPress={handleSubmit}
                     {...props}
                     fill
-                  />
+                  /> */}
                 </View>
                 <View style={styles.botones}>
                   <StyledButton
