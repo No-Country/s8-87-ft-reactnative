@@ -1,9 +1,15 @@
 import { View, Text, Image, StyleSheet } from "react-native";
 import React from "react";
 
-export default function ProfilePictureName({ imgSize, nameSize, user }) {
+export default function ProfilePictureName({ imgSize, nameSize, displayText, user }) {
   const altura = { ancho: 100, alto: 100 };
 
+  if (!displayText) {
+    displayText = "flex"
+  }
+  if (!user) {
+    user = {name: "roberth", lastname: "lopez"}
+  }
   return (
     <View style={styles.container}>
       <Image
@@ -14,7 +20,7 @@ export default function ProfilePictureName({ imgSize, nameSize, user }) {
         }}
         source={require("../../assets/images/user-icon.jpg")}
       />
-      <Text style={{ ...styles.text, fontSize: nameSize }}>
+      <Text style={{ ...styles.text, fontSize: nameSize, display: displayText }}>
         {user.name} {user.lastname}
       </Text>
     </View>
@@ -23,7 +29,7 @@ export default function ProfilePictureName({ imgSize, nameSize, user }) {
 
 const styles = StyleSheet.create({
   container: {
-    width: 137,
+    width: 150,
     fontFamily: "Roboto",
     justifyContent: "center",
     alignItems: "center",

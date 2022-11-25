@@ -8,6 +8,7 @@ import CastingIcon from "../assets/icons/casting-icon.svg";
 import SoytArtistaIcon from "../assets/icons/soy-artista-icon.svg";
 import BuscoArtistaIcon from "../assets/icons/busco-artista-icon.svg";
 import TresPuntos from "../components/TresPuntos";
+import SearchHeader from "../components/SearchHeader";
 
 export default function HomeTabNavigator() {
   const Tab = createBottomTabNavigator();
@@ -31,6 +32,8 @@ export default function HomeTabNavigator() {
           backgroundColor: palette.AuraOrange,
         },
         headerTintColor: "white",
+        headerTitle: () => <SearchHeader />,
+        headerRight: () => <TresPuntos />,
       }}
     >
       <Tab.Screen
