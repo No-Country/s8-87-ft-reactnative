@@ -3,7 +3,7 @@ import React from "react";
 import ExperienceCard from "./ExperienceCard";
 import SoyArtistaHeader from "./SoyArtistaHeader";
 
-export default function SoyArtistaList() {
+export default function SoyArtistaList({ user }) {
   const experience = [
     {
       title: "1 Disney Jr. en el GRAN REX",

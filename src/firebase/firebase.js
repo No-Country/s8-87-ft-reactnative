@@ -22,6 +22,7 @@ export { auth, db };
 export const getUserInfo = async (id) => {
   const dbRef = db.collection("users").doc(id);
   const doc = await dbRef.get();
-  const user = doc.data();
-  return user;
+  const userData = doc.data();
+  console.log("userDAta: ", userData);
+  return userData;
 };

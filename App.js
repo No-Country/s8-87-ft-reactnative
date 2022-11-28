@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useMemo } from "react";
 import { View, StyleSheet } from "react-native";
+
 import LandingNavigation from "./src/navigation/LandingNavigation.jsx";
 
 /* Asi podría ir cuando implementemos el auth */

@@ -36,10 +36,6 @@ const Register = (props) => {
     return unsubscribe;
   }, []);
 
-  const handleChangeText = (name, value) => {
-    setState({ ...state, [name]: value });
-  };
-
   const handleCreateUser = (values) => {
     auth
       .createUserWithEmailAndPassword(values.email, values.password)
