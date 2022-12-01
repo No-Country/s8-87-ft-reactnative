@@ -8,6 +8,7 @@ import HomeTabNavigator from "./HomeTabNavigator.jsx";
 import MiBio from "../screens/MiBio.jsx";
 import TresPuntos from "../components/TresPuntos.jsx";
 import SubirExperiencia from "../components/SoyArtista/SubirExperiencia.jsx";
+import UserProfile from "../screens/UserProfile.jsx";
 import { palette } from "../utils/palette.js";
 
 const Stack = createNativeStackNavigator();
@@ -74,6 +75,16 @@ const LandingNavigation = () => {
         <Stack.Screen
           name="SUBIR EXPERIENCIA"
           component={SubirExperiencia}
+          options={{
+            headerStyle: {
+              backgroundColor: palette.AuraOrange,
+            },
+            headerTintColor: "white",
+          }}
+        />
+        <Stack.Screen
+          name="PERFIL DE USUARIO"
+          component={UserProfile}
           options={{
             headerStyle: {
               backgroundColor: palette.AuraOrange,

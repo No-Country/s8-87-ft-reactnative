@@ -61,7 +61,6 @@ export default function SoyArtistaList() {
       data={experience}
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => <ExperienceCard item={item} />}
-      // ListHeaderComponent={() => <SoyArtistaHeader />}
     />
   );
 }
