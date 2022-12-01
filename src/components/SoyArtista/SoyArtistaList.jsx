@@ -56,12 +56,13 @@ export default function SoyArtistaList({ user }) {
   ];
 
   return (
-    <FlatList
-      style={{ marginBottom: 200 }}
-      data={experience}
-      keyExtractor={(item) => item.id}
-      renderItem={({ item }) => <ExperienceCard item={item} />}
-      // ListHeaderComponent={() => <SoyArtistaHeader />}
-    />
+    <View style={{ flex: 1 }}>
+      <FlatList
+        data={experience}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <ExperienceCard item={item} />}
+        // ListHeaderComponent={() => <SoyArtistaHeader />}
+      />
+    </View>
   );
 }

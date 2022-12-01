@@ -7,7 +7,6 @@ import { auth, db, getUserInfo } from "../../firebase/firebase.js";
 const Logout = (props) => {
   const [dataUser, setDataUser] = useState(null);
   const [error, setError] = useState(null);
-  console.log("entra");
 
   const getName = async () => {
     const user = await getUserInfo(auth.currentUser?.uid);

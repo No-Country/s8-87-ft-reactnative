@@ -56,6 +56,8 @@ const Register = (props) => {
         name: values.name,
         lastname: values.lastname,
         email: values.email,
+        img: null,
+        bio: "",
       });
     } catch (error) {
       console.log(error);

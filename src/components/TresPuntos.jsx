@@ -12,7 +12,6 @@ export default function TresPuntos() {
       setOpenMenu(false);
     }
   };
-  console.log(menu);
 
   return (
     <View>
