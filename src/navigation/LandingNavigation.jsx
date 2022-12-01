@@ -8,6 +8,7 @@ import HomeTabNavigator from "./HomeTabNavigator.jsx";
 import MiBio from "../screens/MiBio.jsx";
 import TresPuntos from "../components/TresPuntos.jsx";
 import SubirExperiencia from "../components/SoyArtista/SubirExperiencia.jsx";
+import UserProfile from "../screens/UserProfile.jsx";
 import { palette } from "../utils/palette.js";
 
 import { UserContext } from "../context/UserContext.jsx";

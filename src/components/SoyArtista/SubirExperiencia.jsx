@@ -1,7 +1,8 @@
 import { View, Text, StyleSheet, TextInput } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { SelectList } from 'react-native-dropdown-select-list'
 import StyledSubmitButton from '../UI/buttons/StyledSubmitButton';
 import StyledTextInput from '../UI/inputs/StyledTextInput';
 import ProfilePictureName from './ProfilePictureName';
@@ -9,6 +10,14 @@ import { palette } from '../../utils/palette';
 
 
 const SubirExperiencia = (props) => {
+
+  const [selected, setSelected] = useState("");
+
+  const data = [
+    {key:'Audiovisual', value:'Audiovisual'},
+    {key:'Teatral', value:'Teatral'},
+]
+
   const handleAct = (values) => {
     console.log(values)
   };
@@ -35,7 +44,7 @@ return (
         initialValues={userInfo}
         validationSchema={validationSchema}
         onSubmit={(values) => {
-          handleAct(values);
+          return console.log(values)
         }}
       >
         {({
@@ -58,23 +67,31 @@ return (
                 onBlur={handleBlur("empresa")}
               />
               <StyledTextInput
-                secureTextEntry
                 value={rol}
                 error={touched.rol && errors.rol}
                 placeholder="Rol desempeñado"
                 onChangeText={handleChange("rol")}
                 onBlur={handleBlur("rol")}
               />
-              <StyledTextInput
-                secureTextEntry
+              {/* <StyledTextInput
                 value={tipo}
                 error={touched.tipo && errors.tipo}
                 placeholder="Tipo de Experiencia"
                 onChangeText={handleChange("tipo")}
                 onBlur={handleBlur("tipo")}
+              /> */}
+              <SelectList 
+                boxStyles={styles.input}
+                inputStyles={{fontSize: 16, color: "#212121",}}
+                setSelected={setSelected} 
+                data={data} 
+                value={tipo}
+                error={touched.tipo && errors.tipo}
+                placeholder='Tipo de Experiencia'
+                onSelect={handleChange("tipo")}
+                search={false}
               />
               <StyledTextInput
-                secureTextEntry
                 value={fecha}
                 error={touched.fecha && errors.fecha}
                 placeholder="Fecha de Estreno"
@@ -119,7 +136,21 @@ botones: {
   marginBottom: 10,
   marginTop: 20,
 },
-botonera: {
+
+inputGroup: {
   flexDirection: "row",
+  justifyContent: "space-between",
+  marginBottom: 5,
+  marginTop: 5,
 },
+input: {
+  borderWidth: 1,
+  borderColor: "#000",
+  height: 50,
+  borderRadius: 4,
+  fontSize: 16,
+  paddingLeft: 10,
+  marginTop: 30,
+},
+
 });
