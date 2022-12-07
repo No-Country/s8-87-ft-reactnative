@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { View, StyleSheet, Alert } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import StyledTextInput from "../components/UI/inputs/StyledTextInput.jsx";
 import StyledSubmitButton from "../components/UI/buttons/StyledSubmitButton.jsx";
 import TopBar from "../components/UI/TopBar.jsx";
-import { auth } from "../firebase/firebase.js";
+import { auth, getUserInfo } from "../firebase/firebase.js";
+import { UserContext } from "../context/UserContext.jsx";
+import Loader from "../components/Loader/Loader.jsx";
 
 const validationSchema = Yup.object({
   email: Yup.string().email("Email inválido").required("Email requerido"),
@@ -16,15 +18,27 @@ const validationSchema = Yup.object({
 
 const LogIn = (props) => {
   const [login, setLogin] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const { user, setUser } = useContext(UserContext);
 
   const userInfo = {
     email: "",
     password: "",
   };
 
+  const getData = async () => {
+    try {
+      dataUser = await getUserInfo(auth.currentUser?.uid);
+      setUser(dataUser);
+    } catch (error) {}
+
+    setLogin(true);
+  };
+
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user && login) {
+        setLoading(false);
         props.navigation.navigate("Home");
       }
     });
@@ -35,9 +49,9 @@ const LogIn = (props) => {
     auth
       .signInWithEmailAndPassword(values.email, values.password)
       .then((userCredential) => {
-        console.log("sing in");
-        const user = userCredential.user;
-        setLogin(true);
+        setLoading(true);
+        //  const user = userCredential.user;
+        getData();
       })
       .catch((error) => {
         console.log(error);
@@ -50,53 +64,58 @@ const LogIn = (props) => {
       <View style={styles.botonera}>
         <TopBar {...props} section="login" />
       </View>
-      <View style={styles.innerContainer}>
-        <Formik
-          initialValues={userInfo}
-          validationSchema={validationSchema}
-          onSubmit={(values) => {
-            handleSignIn(values);
-          }}
-        >
-          {({
-            values,
-            errors,
-            touched,
-            isSubmitting,
-            handleChange,
-            handleBlur,
-            handleSubmit,
-          }) => {
-            const { name, lastname, email, password } = values;
-            return (
-              <>
-                <StyledTextInput
-                  value={email}
-                  error={touched.email && errors.email}
-                  placeholder="Email"
-                  onChangeText={handleChange("email")}
-                  onBlur={handleBlur("email")}
-                />
-                <StyledTextInput
-                  secureTextEntry
-                  value={password}
-                  error={touched.password && errors.password}
-                  placeholder="Contraseña"
-                  onChangeText={handleChange("password")}
-                  onBlur={handleBlur("password")}
-                />
-                <View style={styles.botones}>
-                  <StyledSubmitButton
-                    submitting={isSubmitting}
-                    onPress={handleSubmit}
-                    title="INGRESAR"
+
+      {loading ? (
+        <Loader />
+      ) : (
+        <View style={styles.innerContainer}>
+          <Formik
+            initialValues={userInfo}
+            validationSchema={validationSchema}
+            onSubmit={(values) => {
+              handleSignIn(values);
+            }}
+          >
+            {({
+              values,
+              errors,
+              touched,
+              isSubmitting,
+              handleChange,
+              handleBlur,
+              handleSubmit,
+            }) => {
+              const { email, password } = values;
+              return (
+                <>
+                  <StyledTextInput
+                    value={email}
+                    error={touched.email && errors.email}
+                    placeholder="Email"
+                    onChangeText={handleChange("email")}
+                    onBlur={handleBlur("email")}
                   />
-                </View>
-              </>
-            );
-          }}
-        </Formik>
-      </View>
+                  <StyledTextInput
+                    secureTextEntry
+                    value={password}
+                    error={touched.password && errors.password}
+                    placeholder="Contraseña"
+                    onChangeText={handleChange("password")}
+                    onBlur={handleBlur("password")}
+                  />
+                  <View style={styles.botones}>
+                    <StyledSubmitButton
+                      submitting={isSubmitting}
+                      onPress={handleSubmit}
+                      title="INGRESAR"
+                    />
+                  </View>
+                </>
+              );
+            }}
+          </Formik>
+        </View>
+      )}
     </View>
   );
 };

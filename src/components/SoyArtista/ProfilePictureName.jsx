@@ -27,7 +27,6 @@ export default function ProfilePictureName({
   const isFocused = useIsFocused();
 
   useEffect(() => {
-    console.log("se: ", user.name, user.lastname);
     setImage(user.img);
     setName(user.name);
     setLastname(user.lastname);
