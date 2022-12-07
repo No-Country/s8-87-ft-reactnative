@@ -89,7 +89,7 @@ export default function ProfilePictureName({
       <Text
         style={{ ...styles.text, fontSize: nameSize, display: displayText }}
       >
-        {name} {lastname}
+        {name && name.split(" ")[0]} {lastname && lastname.split(" ")[0]}
       </Text>
     </View>
   );

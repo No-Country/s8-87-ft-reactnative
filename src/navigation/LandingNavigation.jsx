@@ -87,6 +87,16 @@ const LandingNavigation = () => {
               headerTintColor: "white",
             }}
           />
+            <Stack.Screen
+            name="PERFIL DE USUARIO"
+            component={UserProfile}
+            options={{
+              headerStyle: {
+                backgroundColor: palette.AuraOrange,
+              },
+              headerTintColor: "white",
+            }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </UserContext.Provider>
