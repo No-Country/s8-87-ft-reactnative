@@ -1,5 +1,5 @@
-import { View, Text, StyleSheet, Image } from "react-native";
-import React, { useState, useEffect } from "react";
+import { View, StyleSheet } from "react-native";
+import React from "react";
 import ProfilePictureName from "./ProfilePictureName";
 import BioExperiencias from "./BioExperiencias";
 

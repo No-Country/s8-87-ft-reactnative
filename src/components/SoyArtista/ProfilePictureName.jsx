@@ -27,9 +27,10 @@ export default function ProfilePictureName({
   const isFocused = useIsFocused();
 
   useEffect(() => {
-    setImage(user.img);
+    setImage(user.img || "user-icon.jpg");
     setName(user.name);
     setLastname(user.lastname);
+    console.log("si: ", user);
   }, [isFocused, image]);
 
   const pickImage = async () => {
@@ -66,11 +67,6 @@ export default function ProfilePictureName({
 
     Alert.alert("Foto subida!");
   };
-
-  if (!user.img) {
-    imgPath = require("../../assets/images/user-icon.jpg");
-    console.log("noimage");
-  }
 
   if (!displayText) {
     displayText = "flex";

@@ -38,5 +38,7 @@ const styles = StyleSheet.create({
     borderRadius: 4,
     fontSize: 16,
     paddingLeft: 10,
+    paddingTop: 10,
+    textAlignVertical: "top",
   },
 });

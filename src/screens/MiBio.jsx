@@ -5,7 +5,7 @@ import ProfilePictureName from "../components/SoyArtista/ProfilePictureName";
 import MiBioIngresar from "../components/MiBio/MiBioIngresar";
 import { UserContext } from "../context/UserContext.jsx";
 
-export default function MiBio() {
+export default function MiBio(props) {
   const { user } = useContext(UserContext);
   return (
     <View style={styles.container}>
@@ -15,7 +15,7 @@ export default function MiBio() {
         user={user}
         edit
       />
-      <MiBioIngresar />
+      <MiBioIngresar {...props} />
     </View>
   );
 }

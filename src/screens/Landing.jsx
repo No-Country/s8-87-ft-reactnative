@@ -33,8 +33,9 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 0,
-    justifyContent: "flex-end",
+    paddingHorizontal: 20,
     paddingBottom: 60,
+    justifyContent: "flex-end",
     alignItems: "center",
     backgroundColor: "#dad5d1",
   },
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
   bienvenida: { fontSize: 20, fontWeight: "bold", marginTop: 60 },
   pregunta: { fontSize: 15, marginTop: 20, marginBottom: 60 },
   botones: {
-    width: 200,
+    alignSelf: "stretch",
     padding: 10,
     marginBottom: 25,
   },

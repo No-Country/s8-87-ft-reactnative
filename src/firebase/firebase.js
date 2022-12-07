@@ -24,14 +24,12 @@ export const getUserInfo = async (id) => {
   const dbRef = db.collection("users").doc(id);
   const doc = await dbRef.get();
   const userData = doc.data();
-  //console.log("userDAta: ", userData);
   return userData;
 };
 
 export const updateUserInfo = async (id, data) => {
   const dbRef = db.collection("users").doc(id);
   const doc = await dbRef.get();
-  // db.collection("users").doc(id).set;
   dbRef.set(data, { merge: true });
   console.log("ok", data);
 };
