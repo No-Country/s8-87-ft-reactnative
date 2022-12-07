@@ -50,8 +50,6 @@ export default function CastingCard() {
 }
 
 
-
-
 const styles = StyleSheet.create({
     main: {
         flex: 1,
