@@ -7,6 +7,7 @@ import StyledSubmitButton from '../UI/buttons/StyledSubmitButton';
 import StyledTextInput from '../UI/inputs/StyledTextInput';
 import ProfilePictureName from './ProfilePictureName';
 import { palette } from '../../utils/palette';
+import DatePicker from 'react-native-datepicker';
 
 
 const SubirExperiencia = (props) => {
@@ -56,7 +57,7 @@ return (
           handleBlur,
           handleSubmit,
         }) => {
-          const { empresa, rol, tipo, fecha } = values;
+          const { empresa, rol, tipo, fecha, date } = values;
           return (
             <>
               <StyledTextInput
@@ -98,6 +99,31 @@ return (
                 onChangeText={handleChange("fecha")}
                 onBlur={handleBlur("fecha")}
               />
+              {/* <DatePicker
+            style={{ width: 200 }}
+            date={date}
+            mode="date"
+            placeholder="select date"
+            format="YYYY-MM-DD"
+            minDate="1900-01-01"
+            maxDate="2099-12-31"
+            confirmBtnText="Confirm"
+            cancelBtnText="Cancel"
+            customStyles={{
+              dateIcon: {
+                position: 'absolute',
+                left: 0,
+                top: 4,
+                marginLeft: 0,
+              },
+              dateInput: {
+                marginLeft: 36,
+              },
+            }}
+            onDateChange={(date) => {
+              setFieldValue('date', date);
+            }}
+          /> */}
               <View style={styles.botones}>
                 <StyledSubmitButton
                   submitting={isSubmitting}

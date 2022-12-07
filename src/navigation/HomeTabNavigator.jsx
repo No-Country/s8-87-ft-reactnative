@@ -34,6 +34,16 @@ export default function HomeTabNavigator() {
         headerTintColor: "white",
         headerTitle: () => <SearchHeader />,
         headerRight: () => <TresPuntos />,
+        tabBarActiveTintColor: "#000",
+        tabBarLabelStyle: {
+          fontSize: 30
+        },
+        tabBarStyle: [
+          {
+            display: "flex"
+          },
+          null
+        ]
       }}
     >
       <Tab.Screen
