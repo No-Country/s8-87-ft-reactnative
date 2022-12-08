@@ -15,17 +15,17 @@ export default function SoyArtistaHeader({ user }) {
         <BioExperiencias user={user} />
       </View>
       <View style={styles.container2}>
-        <Text style={styles.role}>
+        {(user.actriz || user.actor || user.modelo || user.cantante || user.influencer) &&  (<Text style={styles.role}>
           {user.actriz && "Actriz "}
           {user.actor && "Actor "}
           {user.modelo && "Modelo "}
           {user.cantante && "Cantante "}
           {user.influencer && "Influencer "}
-        </Text>
-        <Text style={styles.country}>
+        </Text>)}
+        {user.country && (<Text style={styles.country}>
           {user.city}, {user.country}
-        </Text>
-        <Text style={styles.text}>{user.bio}</Text>
+        </Text>)}
+        {user.bio && <Text style={styles.text}>{user.bio}</Text>}
       </View>
     </>
   );
