@@ -2,11 +2,11 @@
 
 # B-Stage
 
-B-Stage es una red social pensada para ayudar a los artistas a conseguir audiciones, hacer redes y exponer sus experiencias.
+B-Stage es una red social laboral que permite demandar y ofrecer trabajo artistico exclusivamente en el ámbito teatral/audiovisual. Un universo que permita el networking necesario para garantizar el trabajo remunerado, en condiciones dignas. Una democratización real de las oportunidades en el sector y finalmente una app hecha por y para los artistas.
 
 Puedes crear una cuenta e iniciar sesion, subir experiencias, tu locación y foto de perfil.
 
-El usuario puede ver los artistas mas influyentes de la app, y ver la fecha de los castings que se aproximan.
+El usuario puede ver los artistas mas influyentes de la app, ver la fecha de los castings que se aproximan para participar en ellos y conseguir nuevas oportunidades profesionales.
 
 ### Stack
 
