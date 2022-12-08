@@ -83,7 +83,7 @@ export default function SoyArtistaList() {
     <View style={{ flex: 1 }}>
       <FlatList
         data={data}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.idUser}
         renderItem={({ item }) => <ExperienceCard item={item} />}
         // ListHeaderComponent={() => <SoyArtistaHeader />}
       />

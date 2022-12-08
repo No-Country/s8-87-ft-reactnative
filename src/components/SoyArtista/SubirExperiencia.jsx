@@ -27,13 +27,11 @@ const SubirExperiencia = (props) => {
   const validationSchema = Yup.object({
     empresa: Yup.string().required("Empresa requerida"),
     rol: Yup.string().required("Rol requerido"),
-    tipo: Yup.string().required("El tipo de experiencia es requerido"),
     fecha: Yup.string().required("La fecha es requerida"),
   });
   const userInfo = {
     empresa: "",
     rol: "",
-    tipo: "",
     fecha: "",
   };
 
