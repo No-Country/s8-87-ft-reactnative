@@ -10,8 +10,8 @@ El usuario puede ver los artistas mas influyentes de la app, ver la fecha de los
 
 ### Stack
 
-`Front-end:` React Native.
-`Back-end`: Firebase.
+`Front-end:` React Native. <br>
+`Back-end`: Firebase. <br>
 
 ### Liberías:
 
@@ -22,7 +22,7 @@ El usuario puede ver los artistas mas influyentes de la app, ver la fecha de los
 
 ### Roles
 
-`Martin Maldonado:` Diseñador UX/UI.
-`Roberth Lopez:` Desarrollador Front-end. [RoberthLopez](https://github.com/RoberthLopez)
-`Pablo Mesquida:` Desarrollador Front-end. [PabloMesquida](https://github.com/PabloMesquida)
-`Juan Castañeada:` Desarrollador Front-end. [Juanrubenc](https://github.com/Juanrubenc)
+`Martin Maldonado:` Diseñador UX/UI. <br>
+`Roberth Lopez:` Desarrollador Front-end. [RoberthLopez](https://github.com/RoberthLopez) <br>
+`Pablo Mesquida:` Desarrollador Front-end. [PabloMesquida](https://github.com/PabloMesquida) <br>
+`Juan Castañeada:` Desarrollador Front-end. [Juanrubenc](https://github.com/Juanrubenc) <br>

@@ -30,7 +30,7 @@ export default function TopArtistaCard({ data }) {
               }}
             />
             <View>
-              <Text style={styles.name}>{data.name}</Text>
+              <Text style={styles.name}>{data.name && data.name.split(" ")[0]} {data.lastname && data.lastname.split(" ")[0]}</Text>
               <Text style={styles.city}>{data.city}</Text>
             </View>
           </View>
