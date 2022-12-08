@@ -28,7 +28,7 @@ const MiBioIngresar = (props) => {
     actriz: user.actriz,
     actor: user.actor,
     modelo: user.modelo,
-    cantante: user.cantate,
+    cantante: user.cantante,
     influencer: user.influencer,
   };
 

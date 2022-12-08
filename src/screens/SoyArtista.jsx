@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import SoyArtistaHeader from "../components/SoyArtista/SoyArtistaHeader";
 import SoyArtistaList from "../components/SoyArtista/SoyArtistaList";
 import { UserContext } from "../context/UserContext.jsx";
+import Loader from "../components/Loader/Loader.jsx";
 
 export default function SoyArtista() {
   const { user } = useContext(UserContext);
