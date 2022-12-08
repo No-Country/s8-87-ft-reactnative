@@ -57,7 +57,7 @@ return (
           handleBlur,
           handleSubmit,
         }) => {
-          const { empresa, rol, tipo, fecha, date } = values;
+          const { empresa, rol, tipo, fecha } = values;
           return (
             <>
               <StyledTextInput
@@ -74,24 +74,14 @@ return (
                 onChangeText={handleChange("rol")}
                 onBlur={handleBlur("rol")}
               />
-              {/* <StyledTextInput
+              <StyledTextInput
                 value={tipo}
                 error={touched.tipo && errors.tipo}
                 placeholder="Tipo de Experiencia"
                 onChangeText={handleChange("tipo")}
                 onBlur={handleBlur("tipo")}
-              /> */}
-              <SelectList 
-                boxStyles={styles.input}
-                inputStyles={{fontSize: 16, color: "#212121",}}
-                setSelected={setSelected} 
-                data={data} 
-                value={tipo}
-                error={touched.tipo && errors.tipo}
-                placeholder='Tipo de Experiencia'
-                onSelect={handleChange("tipo")}
-                search={false}
               />
+
               <StyledTextInput
                 value={fecha}
                 error={touched.fecha && errors.fecha}
@@ -99,31 +89,7 @@ return (
                 onChangeText={handleChange("fecha")}
                 onBlur={handleBlur("fecha")}
               />
-              {/* <DatePicker
-            style={{ width: 200 }}
-            date={date}
-            mode="date"
-            placeholder="select date"
-            format="YYYY-MM-DD"
-            minDate="1900-01-01"
-            maxDate="2099-12-31"
-            confirmBtnText="Confirm"
-            cancelBtnText="Cancel"
-            customStyles={{
-              dateIcon: {
-                position: 'absolute',
-                left: 0,
-                top: 4,
-                marginLeft: 0,
-              },
-              dateInput: {
-                marginLeft: 36,
-              },
-            }}
-            onDateChange={(date) => {
-              setFieldValue('date', date);
-            }}
-          /> */}
+
               <View style={styles.botones}>
                 <StyledSubmitButton
                   submitting={isSubmitting}
