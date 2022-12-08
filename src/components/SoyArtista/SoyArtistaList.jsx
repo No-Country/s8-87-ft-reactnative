@@ -1,8 +1,33 @@
 import { View, FlatList } from "react-native";
-import React from "react";
+import React, { useEffect, useContext, useState } from "react";
 import ExperienceCard from "./ExperienceCard";
+import { db } from "../../firebase/firebase.js";
+import { UserContext } from "../../context/UserContext";
 
-export default function SoyArtistaList({ user }) {
+export default function SoyArtistaList() {
+  const { user, setUser } = useContext(UserContext);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const subscriber = db
+      .collection("experiencias")
+      .onSnapshot((querySnapshot) => {
+        const data = [];
+        querySnapshot.forEach((documentSnapshot) => {
+          data.push({
+            ...documentSnapshot.data(),
+            key: documentSnapshot.id,
+          });
+        });
+
+        setData(data);
+        setLoading(false);
+      });
+
+    return () => subscriber();
+  }, []);
+
   const experience = [
     {
       title: "1 Disney Jr. en el GRAN REX",
@@ -57,7 +82,7 @@ export default function SoyArtistaList({ user }) {
   return (
     <View style={{ flex: 1 }}>
       <FlatList
-        data={experience}
+        data={data}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => <ExperienceCard item={item} />}
         // ListHeaderComponent={() => <SoyArtistaHeader />}
