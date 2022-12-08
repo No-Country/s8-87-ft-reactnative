@@ -1,0 +1,46 @@
+[
+    {
+        "id": 1,
+        "profilePic": "https://thumbs.dreamstime.com/b/icono-vectorial-de-plantilla-logotipo-panda-logo-dise%C3%B1o-ilustraci%C3%B3n-aislado-cabeza-blanco-zool%C3%B3gico-gr%C3%A1fico-arte-naturaleza-169351127.jpg",
+        "title": "Se Busca Actriz Pelirroja",
+        "location": "Buenos Aires",
+        "date": "2023-01-01",
+        "image": "https://www.disneyonice.com/sites/default/files/styles/meta_image/public/2022-03/22271830-DOI-IDOI-Rapunzel-Frozen_Extended_Sneak_Peek-Static_Assets-1200x630-logo.png.jpg?itok=j580lLia",
+        "show": "Rapunzel on Ice",
+        "company": "Panda Teatrical",
+        "description": "Panda Teatrical busca actrices de cabello pelirrojo o cobrizo para cover de Rapunzel..."
+    },  
+    {
+        "id": 2,
+        "profilePic": "./images/panda.jpeg",
+        "title": "Actriz 25/35 para Bolo",
+        "location": "Pilar - Buenos Aires",
+        "date": "2023-01-01",
+        "show": "El Reino II",
+        "company": "St. Agency",
+        "image": "https://phantom-elmundo.unidadeditorial.es/6d2ab9c4c21765712a57f5dbd000a878/crop/130x0/1855x1150/resize/414/f/jpg/assets/multimedia/imagenes/2020/06/24/15930194372255.jpg",
+        "description": "St. Agency busca actriz caucasica para bolo en serie de importante plataforma de streaming"
+    },
+    {
+        "id": 3,
+        "profilePic": "./images/panda.jpeg",
+                "title": "Actriz Bailarina para Infantil",
+        "location": "Buernos Aires",
+        "date": "2023-01-01",
+        "show": "TOPA - listo para Viajar!",
+        "company": "Fresca Producciones",
+        "image": "https://i.ytimg.com/vi/j22IDw9wClU/maxresdefault.jpg",
+        "description": "Fresca Producciones busca actrices que sepan bailar para temporada de invierno"
+    },
+    {
+        "id": 4,
+        "profilePic": "https://yt3.ggpht.com/VfY0KuyPJYVvX7-Yfc5yHCajeOc1eL1Gaw43gUvq0Hc9J7oRiDrdGY-P2NCp7nTweDbNRM9Bnw=s900-c-k-c0x00ffffff-no-rj",
+        "title": "Actores y Actrices +25",
+        "location": "Buenos Aires",
+        "date": "2023-01-01",
+        "image": "https://phantom-marca.unidadeditorial.es/8a3ff5ee8b562f85238a5927ed05236e/resize/1320/f/jpg/assets/multimedia/imagenes/2021/03/05/16149198696190.jpg",
+        "show": "Soy Pampita",
+        "company": "Agencia EFE",
+        "description": "Para reality televisivo se buscan extras, actores y actrices mayores de 25 años"
+    }
+]
