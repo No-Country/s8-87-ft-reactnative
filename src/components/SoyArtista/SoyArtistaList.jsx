@@ -1,7 +1,6 @@
-import { View, Text, FlatList, ScrollView } from "react-native";
+import { View, FlatList } from "react-native";
 import React from "react";
 import ExperienceCard from "./ExperienceCard";
-import SoyArtistaHeader from "./SoyArtistaHeader";
 
 export default function SoyArtistaList({ user }) {
   const experience = [

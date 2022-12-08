@@ -38,7 +38,6 @@ const LogIn = (props) => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user && login) {
-        setLoading(false);
         props.navigation.navigate("Home");
       }
     });

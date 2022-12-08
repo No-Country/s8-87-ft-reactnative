@@ -1,19 +1,17 @@
-import { View, Text, StyleSheet, FlatList, ScrollView } from "react-native";
+import { View, StyleSheet } from "react-native";
 import React, { useContext } from "react";
 import SoyArtistaHeader from "../components/SoyArtista/SoyArtistaHeader";
-import ExperienceCard from "../components/SoyArtista/ExperienceCard";
-import Loader from "../components/Loader/Loader";
 import SoyArtistaList from "../components/SoyArtista/SoyArtistaList";
 import { UserContext } from "../context/UserContext.jsx";
+import Loader from "../components/Loader/Loader.jsx";
 
 export default function SoyArtista() {
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   return (
     <View style={styles.container}>
-      {!user && <Loader />}
-      {user && <SoyArtistaHeader user={user} />}
-      {user && <SoyArtistaList user={user} />}
+      <SoyArtistaHeader user={user} />
+      <SoyArtistaList user={user} />
     </View>
   );
 }

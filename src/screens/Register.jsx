@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { View, StyleSheet, Alert } from "react-native";
 import { auth, db } from "../firebase/firebase.js";
 import { Formik } from "formik";
@@ -7,6 +7,7 @@ import TopBar from "../components/UI/TopBar.jsx";
 import StyledTextInput from "../components/UI/inputs/StyledTextInput.jsx";
 import StyledButton from "../components/UI/buttons/StyledButton.jsx";
 import StyledSubmitButton from "../components/UI/buttons/StyledSubmitButton.jsx";
+import { UserContext } from "../context/UserContext.jsx";
 
 const validationSchema = Yup.object({
   name: Yup.string().min(3, "Nombre Inválido").required("Nombre requerido"),
@@ -20,6 +21,8 @@ const validationSchema = Yup.object({
 });
 
 const Register = (props) => {
+  const [userCreate, setUserCreate] = useState(false);
+  const { user, setUser } = useContext(UserContext);
   const userInfo = {
     name: "",
     lastname: "",
@@ -29,21 +32,25 @@ const Register = (props) => {
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
+      if (user && userCreate) {
+        console.log("nav");
         props.navigation.navigate("Home");
       }
     });
     return unsubscribe;
-  }, []);
+  }, [userCreate]);
 
   const handleCreateUser = (values) => {
     auth
       .createUserWithEmailAndPassword(values.email, values.password)
       .then((userCredential) => {
         const user = userCredential.user;
-        AddUser(user.uid, values);
-        // console.log(user);
+        AddUser(user.uid, values).then(() => {
+          console.log("userCreate");
+          setUserCreate(true);
+        });
       })
+
       .catch((error) => {
         console.log(error);
         Alert.alert(error.message);
@@ -51,14 +58,23 @@ const Register = (props) => {
   };
 
   const AddUser = async (id, values) => {
+    const data = {
+      name: values.name,
+      lastname: values.lastname,
+      email: values.email,
+      img: null,
+      bio: "",
+      city: "",
+      country: "",
+      actriz: false,
+      actor: false,
+      cantante: false,
+      modelo: false,
+      influencer: false,
+    };
     try {
-      await db.collection("users").doc(id).set({
-        name: values.name,
-        lastname: values.lastname,
-        email: values.email,
-        img: null,
-        bio: "",
-      });
+      await db.collection("users").doc(id).set(data);
+      setUser(data);
     } catch (error) {
       console.log(error);
     }
